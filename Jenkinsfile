@@ -14,21 +14,21 @@
       }
       
      stage('Build Docker Image'){         
-           sh "sudo docker build -t ${dockerImageName} ."
+           sh "sudo -S docker build -t ${dockerImageName} ."
       }  
    
      stage('Publish Docker Image'){
          withCredentials([string(credentialsId: 'dockerpwd', variable: 'dockerPWD')]) {
-              sh "sudo docker login -u ajeeth758392 -p ${dockerPWD}"
+              sh "sudo -S docker login -u ajeeth758392 -p ${dockerPWD}"
          }
-        sh "sudo docker push ${dockerImageName}"
+        sh "sudo -S docker push ${dockerImageName}"
       }
       
     stage('Run Docker Image'){
             def dockerContainerName = 'javadockerapp_$JOB_NAME_$BUILD_NUMBER'
             def changingPermission='sudo chmod +x stopscript.sh'
             def scriptRunner='sudo ./stopscript.sh'           
-            def dockerRun= "sudo docker run -p 8082:8080 -d --name ${dockerContainerName} ${dockerImageName}" 
+            def dockerRun= "sudo -S docker run -p 8082:8080 -d --name ${dockerContainerName} ${dockerImageName}" 
             withCredentials([string(credentialsId: 'deploymentserverpwd', variable: 'dpPWD')]) {
                   sh "sshpass -p ${dpPWD} ssh -o StrictHostKeyChecking=no ajeeth_prabhu@35.197.135.227" 
                   sh "sshpass -p ${dpPWD} scp -r stopscript.sh ajeeth_prabhu@35.197.135.227:/home/devops" 
