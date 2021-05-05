@@ -18,7 +18,7 @@
       }  
    
      stage('Publish Docker Image'){
-         withCredentials([string(credentialsId: 'dockerpwd', variable: 'dockerPWD')]) {
+         withCredentials([string(credentialsId: 'dockerpwdajeeth', variable: 'dockerPWD')]) {
               sh "echo '24081991' | sudo -S docker login -u ajeeth758392 -p ${dockerPWD}"
          }
         sh "echo '24081991' | sudo -S docker push ${dockerImageName}"
