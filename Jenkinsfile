@@ -31,7 +31,7 @@
             def dockerRun= "sudo -S docker run -p 8082:8080 -d --name ${dockerContainerName} ${dockerImageName}" 
             withCredentials([string(credentialsId: 'deploymentserverpwd', variable: 'dpPWD')]) {
                   sh "sudo apt-get install lftp"
-                  sh "sshpass -p '$rootPassword' ssh -o 'StrictHostKeyChecking=no' $isRoot@$Host "chmod u+x /home/$USER/Script.sh""
+                  sh "sshpass -p '$24081991' ssh -o 'StrictHostKeyChecking=no' $isRoot@$Host "chmod u+x /home/$root/Script.sh""
                   sh "sshpass -p ${dpPWD} ssh -o StrictHostKeyChecking=no ubuntu@35.197.135.227" 
                   sh "sshpass -p ${dpPWD} scp -r stopscript.sh ubuntu@35.197.135.227:/home/devops" 
                   sh "sshpass -p ${dpPWD} ssh -o StrictHostKeyChecking=no ubuntu@35.197.135.227${changingPermission}"
