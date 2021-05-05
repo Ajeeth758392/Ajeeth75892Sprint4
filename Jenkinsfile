@@ -14,14 +14,14 @@
       }
       
      stage('Build Docker Image'){         
-           sh "sudo -S docker build -t ${dockerImageName} ."
+           sh "echo '24081991' | sudo -S docker build -t ${dockerImageName} ."
       }  
    
      stage('Publish Docker Image'){
          withCredentials([string(credentialsId: 'dockerpwd', variable: 'dockerPWD')]) {
-              sh "sudo -S docker login -u ajeeth758392 -p ${dockerPWD}"
+              sh "echo '24081991' | sudo -S docker login -u ajeeth758392 -p ${dockerPWD}"
          }
-        sh "sudo -S docker push ${dockerImageName}"
+        sh "echo '24081991' | sudo -S docker push ${dockerImageName}"
       }
       
     stage('Run Docker Image'){
