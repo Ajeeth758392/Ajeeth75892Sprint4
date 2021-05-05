@@ -31,11 +31,11 @@
             def dockerRun= "sudo -S docker run -p 8082:8080 -d --name ${dockerContainerName} ${dockerImageName}" 
             withCredentials([string(credentialsId: 'deploymentserverpwd', variable: 'dpPWD')]) {
                   sh "sudo apt-get install lftp"
-                  sh "sudo sshpass -p ${dpPWD} ssh -o StrictHostKeyChecking=no -T ajeeth_prabhu@35.197.135.227" 
-                  sh "sudo sshpass -p ${dpPWD} scp -r stopscript.sh ajeeth_prabhu@35.197.135.227:/home/devops" 
-                  sh "sudo sshpass -p ${dpPWD} ssh -o StrictHostKeyChecking=no -T ajeeth_prabhu@35.197.135.227${changingPermission}"
-                  sh "sudo sshpass -p ${dpPWD} ssh -o StrictHostKeyChecking=no -T ajeeth_prabhu@35.197.135.227${scriptRunner}"
-                  sh "sudo sshpass -p ${dpPWD} ssh -o StrictHostKeyChecking=no -T ajeeth_prabhu@35.197.135.227${dockerRun}"
+                  sh "sudo sshpass -p ${dpPWD} ssh -o StrictHostKeyChecking=no -T ajeeth_prabhu@34.101.126.233" 
+                  sh "sudo sshpass -p ${dpPWD} scp -r stopscript.sh ajeeth_prabhu@34.101.126.233:/home/ajeeth_prabhu" 
+                  sh "sudo sshpass -p ${dpPWD} ssh -o StrictHostKeyChecking=no -T ajeeth_prabhu@34.101.126.233${changingPermission}"
+                  sh "sudo sshpass -p ${dpPWD} ssh -o StrictHostKeyChecking=no -T ajeeth_prabhu@34.101.126.233${scriptRunner}"
+                  sh "sudo sshpass -p ${dpPWD} ssh -o StrictHostKeyChecking=no -T ajeeth_prabhu@34.101.126.233${dockerRun}"
             }
             
       
