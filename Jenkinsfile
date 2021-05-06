@@ -29,12 +29,13 @@
             def changingPermission='sudo chmod +x stopscript.sh'
             def scriptRunner='sudo ./stopscript.sh'           
             def dockerRun= "sudo -S docker run -p 8082:8080 -d --name ${dockerContainerName} ${dockerImageName}" 
-                  sh "sudo sshpass   ssh -o StrictHostKeyChecking=no -T ubuntu@35.197.135.227" 
-                  sh "sudo sshpass   scp -r stopscript.sh ubuntu@35.197.135.227:/home/ajeeth_prabhu" 
-                  sh "sudo sshpass   ssh -o StrictHostKeyChecking=no -T ubuntu@34.101.126.233${changingPermission}"
-                  sh "sudo sshpass   ssh -o StrictHostKeyChecking=no -T ubuntu@34.101.126.233${scriptRunner}"
-                  sh "sudo sshpass   ssh -o StrictHostKeyChecking=no -T ubuntu@34.101.126.233${dockerRun}"
-            
+                 withCredentials([string(credentialsId: 'deploymentserverpwd', variable: 'dpPWD')]) {
+                  sh "sshpass -p ${dpPWD} ssh -o StrictHostKeyChecking=no root@35.197.135.227" 
+                  sh "sshpass -p ${dpPWD} scp -r stopscript.sh root@35.197.135.227:/home/root" 
+                  sh "sshpass -p ${dpPWD} ssh -o StrictHostKeyChecking=no root@35.197.135.227${changingPermission}"
+                  sh "sshpass -p ${dpPWD} ssh -o StrictHostKeyChecking=no root@35.197.135.227${scriptRunner}"
+                  sh "sshpass -p ${dpPWD} ssh -o StrictHostKeyChecking=no root@35.197.135.227${dockerRun}"
+            }
             
       
       }     
