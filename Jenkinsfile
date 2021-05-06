@@ -25,6 +25,7 @@
       }
       
     stage('Run Docker Image'){
+          def dockerContainerName = 'javadockerapp_$JOB_NAME_$BUILD_NUMBER'
           sh "sudo -S docker run -p 8083:8080 -d --name ${dockerContainerName} ${dockerImageName}"       
       }     
   }
