@@ -12,18 +12,11 @@
 
     <header>
         <h2>CI CD Pipeline Ajeeth Prabhu Thallur 758392</h2>
-        <nav class="menu">
-            <?php navMenu(); ?>
-        </nav>
-    </header>
-
-    <article>
         <h3>Super league DevOps </h3>
-        <This is s Test Page added only to show the Website build with docker container CI CD pipeline>
+        <br>This is a Test Page added only to show the Website build with docker container CI CD pipeline using Jenkins</br>
+    </header>
+    <article>
+        
     </article>
 
-    <footer><small>2021> <SuperLeague DevOps>.<br><siteVersion V1.1></small></footer>
-
-</div>
-</body>
-</html>
+    <footer><small><br>06:05:2021</br><br>SuperLeague DevOps</br><br>siteVersion : V1.1</br></small></footer></div></body></html>
