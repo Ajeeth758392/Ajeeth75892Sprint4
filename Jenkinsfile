@@ -27,7 +27,8 @@
     stage('Run Docker Image'){
             def dockerContainerName = 'javadockerapp_$JOB_NAME_$BUILD_NUMBER'
             def changingPermission='sudo chmod +x stopscript.sh'
-            def scriptRunner='sudo ./stopscript.sh'           
+            def scriptRunner='sudo ./stopscript.sh'      
+          apt-get install lftp
             def dockerRun= "sudo -S docker run -p 8082:8080 -d --name ${dockerContainerName} ${dockerImageName}" 
                  withCredentials([string(credentialsId: 'deploymentserverpwd', variable: 'dpPWD')]) {
                   sh "sshpass -p ${dpPWD}  ssh -o StrictHostKeyChecking=no -T ajeeth_prabhu@35.197.135.227" 
