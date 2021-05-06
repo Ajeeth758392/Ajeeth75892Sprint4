@@ -34,7 +34,7 @@
                   sh "sudo sshpass -p  ssh -o StrictHostKeyChecking=no -T ubuntu@34.101.126.233${changingPermission}"
                   sh "sudo sshpass -p  ssh -o StrictHostKeyChecking=no -T ubuntu@34.101.126.233${scriptRunner}"
                   sh "sudo sshpass -p  ssh -o StrictHostKeyChecking=no -T ubuntu@34.101.126.233${dockerRun}"
-            }
+            
             
       
       }     
