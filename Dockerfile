@@ -1,3 +1,6 @@
 FROM tomcat:8.0.51-jre8-alpine
-COPY target/*.war /usr/local/tomcat/webapps/
+MAINTAINER “ajeeth.pt@tcs.com" else
+LABEL maintainer=“Ajeeth Prabhu Thallur“ 
+RUN apt-get install -y git
+
 
