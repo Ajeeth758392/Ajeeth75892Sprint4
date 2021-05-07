@@ -1,4 +1,4 @@
-<html lang="en">
+S<html lang="en">
 <head>
     <meta charset="utf-8" />
     <title>Simple Website created Using CI CD Pipeline</title>
@@ -11,7 +11,7 @@
 <div class="wrap">
 
     <header>
-        <h2>CI CD Pipeline Ajeeth Prabhu Thallur 758392</h2>
+        <h2>I Love you Swathi</h2>
         <h3>Super league DevOps </h3>
         <br>This is a Test Page added only to show the Website build with docker container CI CD pipeline using Jenkins</br>
     </header>
